@@ -1,3 +1,4 @@
+// Program to DFS traversal
 // Construction of tree using structure.
 
 #include<bits/stdc++.h>
@@ -35,6 +36,31 @@ void printInorder(Node* root)
 }
 
 
+void PrintPreOrder(Node* root)
+{
+	if(root==NULL)
+	{
+		return;
+	}
+	cout<<root->key<<" ";
+	PrintPreOrder(root->left);
+	PrintPreOrder(root->right);
+}
+
+
+void PrintPostOrder(Node* root)
+{
+	if(root==NULL)
+	{
+		return;
+	}
+	PrintPreOrder(root->left);
+	PrintPreOrder(root->right);
+	cout<<root->key<<" ";
+}
+
+
+
 int main()
 {
 	Node* root = newElement(1);
@@ -42,7 +68,7 @@ int main()
 	root->right = newElement(3);
 	root->left->left = newElement(4);
 	root->left->right = newElement(5);
-	printTree(root);
+	printInorder(root);
 	cout<<endl;
 	return 0;
 }
