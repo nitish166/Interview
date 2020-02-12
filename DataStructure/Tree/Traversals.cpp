@@ -13,6 +13,8 @@ public:
 
 Node* newElement(int item);
 void printInorder(Node* root);
+void PrintPreOrder(Node* root);
+void PrintPostOrder(Node* root);
 
 
 Node* newElement(int item)
