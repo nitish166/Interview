@@ -1,41 +1,45 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void getPath(int** edges, int n, int src, int des, bool* visited)
+
+vector<int>* getPathHeleper(int** edges, int n, int src, int des, bool* visited)
 {
-	vector<int> ans;
-	if(edges[src][des]==1)
+	if(src==des)
 	{
-		ans.push_back(src);
+		vector<int>* Output = new vector<int>();
+		Output->push_back(des);
+		return Output;
 	}
-
-	visited[src]=true;
+	visited[src] = true;
 	for(int i=0;i<n;i++)
 	{
-		if(i==src)
+		// There is edge between start vertice to i
+		if(edges[src][i] && !visited[i])
 		{
-			continue;
-		}
-		if(edges[src][i]==1)
-		{
-			if(visited[i])
+			vector<int>* smallOutput = getPathHeleper(edges, n, i, des, visited);
+			// if we fond the path then push inside smallOutput
+			if(smallOutput !=NULL)
 			{
-				continue;
+				smallOutput->push_back(src);
+				return smallOutput;
 			}
-			if(i==des)
-			{
-				ans.push_back(i);
-				getPath(edges, n, i, des, visited);
-			}
-			
 		}
 	}
-	sort(ans.begin(), ans.end());
+	return NULL;
+}
+
+
+vector<int>* getPath(int** edges, int n, int src, int des)
+{
+	bool* visited = new bool[n];
 	for(int i=0;i<n;i++)
 	{
-		cout<<ans[i]<<" ";	
+		visited[i]=false;
 	}
 
+	vector<int>* output = getPathHeleper(edges, n, src, des, visited);
+	delete[] visited;
+	return output;
 }
 
 
@@ -62,13 +66,23 @@ int main()
         edges[dv][sv] =1;
     }
     
-    bool* vertice = new bool[n];
-    for(int i=0;i<n;i++)
-    {
-        vertice[i]=false;
-    }
     int src, des;
     cin>>src>>des;
-    getPath(edges, n, src, des, vertice);
+    vector<int>* output = getPath(edges, n, src, des);
+    if(output !=NULL)
+    {
+    	cout<<"Path :"<<endl;
+    	for(int i=0;i<output->size();i++)
+    	{
+    		cout<<output->at(i)<<" ";
+    	}
+    	delete [] output;
+    }
+    else
+    {
+    	cout<<"There is no Path"<<endl;
+    }
+    // delete allocated memory
+    
     return 0;
 }
