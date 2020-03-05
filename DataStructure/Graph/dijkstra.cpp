@@ -64,6 +64,64 @@ void dijkstra(int** edges, int n)
 }
 
 
+
+
+// Another method
+
+/*
+
+void dijkstraBFS(vector<vector<int>> graph, int src, int V)
+{
+    // Your code here
+    
+    int dist[V];
+    bool vis[V];
+    for(int i=0;i<V;i++)
+    {
+        dist[i]=INT_MAX;
+        vis[i]=false;
+    }
+    
+    queue<int> que;
+    que.push(src);
+    dist[src]=0;
+    
+    while(!que.empty())
+    {
+        int var = que.front();
+        vis[var]=true;
+        for(int i=0;i<V;i++)
+        {
+            if(graph[var][i] !=0)
+            {
+                if(graph[var][i]+dist[var]<dist[i])
+                {
+                    dist[i]=graph[var][i]+dist[var];
+                    que.push(i);
+                }
+            }
+        }
+        que.pop();
+    }
+    for(int i=0;i<V;i++)
+    {
+        cout<<dist[i]<<" ";
+    }
+}
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
 int main()
 {
 	int n;
