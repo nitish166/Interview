@@ -18,22 +18,30 @@ int main() {
 	    {
 	        cin>>p[i];
 	    }
-	    int count[51]={0};
+	    vector<int> count[51];
 	   
 	    for(int i=0;i<n;i++)
 	    {
 	       
-	            count[f[i]] +=p[i];
+	            count[f[i]].push_back(p[i]);
 	        
 	    }
 
 	    int small = INT_MAX;
 	    for(int i=1; i<=m;i++)
 	    {
-	      
-	        if(count[i]<=small && count[i] !=0)
+	        if(count[i].size()==0)
 	        {
-	            small = count[i];
+	            continue;
+	        }
+	        int temp=0;
+	        for(int j=0;j<count[i].size();j++)
+	        {
+	            temp +=count[i][j];
+	        }
+	        if(temp<small)
+	        {
+	            small=temp;
 	        }
 	    }
 	    cout<<small<<endl;
