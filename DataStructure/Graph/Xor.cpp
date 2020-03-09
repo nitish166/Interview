@@ -20,13 +20,16 @@ int main()
    		{
    			cin>>arr[i];
    		}
-   		int p;
-   		cin>>p;
+   		int qur[q];
+   		for(int i=0;i<q;i++)
+   		{
+   			cin>>qur[i];
+   		}
    		int temp=0;
    		vector<int> ans;
    		for(int i=0;i<n;i++)
    		{
-   			int temp=arr[i]^p;
+   			int temp=arr[i]^qur[i];
    			ans.push_back(temp);
    			temp=0;
    		}
