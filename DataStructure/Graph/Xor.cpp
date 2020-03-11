@@ -4,6 +4,15 @@ using namespace std;
 #define mod 1000000007
 typedef long long int LL;
  
+
+
+void swap(int &a, int &b)
+{
+   int temp = a;
+   a = b;
+   b = temp;
+}
+
 int main()
 {
  
@@ -20,36 +29,32 @@ int main()
    		{
    			cin>>seq[i];
    		}
+         int even=0 ,odd=0;
+         for(int i=0;i<n;i++)
+         {
+            if(seq[i] &1)
+            {
+               odd++;
+            }
+            else
+            {
+               even++;
+            }
+         }
    		int qur[q];
    		for(int i=0;i<q;i++)
    		{
    			cin>>qur[i];
    		}
    	
-   		int temp=0;
-   		vector<int> ans;
-   		for(int i=0;i<q;i++)
-   		{
-   		    for(int j=0;j<n;j++)
-   		    {
-   		        int temp=seq[j]^qur[i];
-   			    ans.push_back(temp);
-   			    temp=0;  
-   		    }
-   			
-   		}
-   		int even=0, odd=0;
-   		for(int i=0;i<ans.size();i++)
-   		{
-   			if(ans[i]%2!=0)
-   			{
-   				odd++;
-   			}
-   			else
-   			{
-   				even++;
-   			}
-   		}
+   		for(int i=0; i<q; i++)
+         {
+            if((qur[i]>>0) & 1)
+            {
+               swap(even, odd);
+            }
+         }
+   		
    		cout<<even<<" "<<odd<<endl;
    }
         
