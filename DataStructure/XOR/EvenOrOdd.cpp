@@ -4,23 +4,23 @@ using namespace std;
 #define mod 1000000007
 typedef long long int LL;
  
-int main()
-{
- 
-   ios_base:: sync_with_stdio(false); cin.tie(0);
-   int n;
-   cin>>n;
-   if(n^1==n+1)
-   {
-   		cout<<"Even Number"<<endl;
-   }
-   else
-   {
-   		cout<<"Odd Number"<<endl;
-   }
-   
-        
-        
- 
-   return 0;
-}
+bool isEven(int n) 
+{ 
+  
+    // n^1 is n+1, then even, else odd 
+    if (n ^ 1 == n + 1) 
+        return true; 
+    else
+        return false; 
+} 
+  
+// Driver code 
+int main() 
+{ 
+    int n = 5; 
+    isEven(n)  
+? cout << "Even" 
+: cout << "Odd"; 
+  
+    return 0; 
+} 
