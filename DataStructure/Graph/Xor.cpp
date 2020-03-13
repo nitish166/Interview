@@ -4,58 +4,63 @@ using namespace std;
 #define mod 1000000007
 typedef long long int LL;
  
-
-
-void swap(int &a, int &b)
+void swap(long long int* x, long long int* y)
 {
-   int temp = a;
-   a = b;
-   b = temp;
+   if (x != y)
+   {
+      *x^=*y^=*x^=*y;
+   }
 }
-
+ 
 int main()
 {
  
    ios_base:: sync_with_stdio(false); cin.tie(0);
     
-   int t;
+   long long int t;
    cin>>t;
    while(t--)
    {
-   		int n,q;
-   		cin>>n>>q;
-   		int seq[n];
-   		for(int i=0;i<n;i++)
-   		{
-   			cin>>seq[i];
-   		}
-         int even=0 ,odd=0;
-         for(int i=0;i<n;i++)
+         long long int n,q;
+         cin>>n>>q;
+         long long int seq[n];
+         long long int i;
+         for( i=0;i<n;i++)
          {
-            if(seq[i] &1)
-            {
-               odd++;
-            }
-            else
-            {
-               even++;
-            }
+            cin>>seq[i];
          }
-   		int qur[q];
-   		for(int i=0;i<q;i++)
-   		{
-   			cin>>qur[i];
-   		}
-   	
-   		for(int i=0; i<q; i++)
+         long long int even=0, odd=0;
+         for( i=0;i<n;i++)
          {
-            if((qur[i]>>0) & 1)
-            {
-               swap(even, odd);
-            }
+             if(seq[i] &1 ==1)
+             {
+                odd++; 
+             }
+             else
+             {
+                 even++;
+             }
          }
-   		
-   		cout<<even<<" "<<odd<<endl;
+         long long int qur[q];
+         for( i=0;i<q;i++)
+         {
+            cin>>qur[i];
+         }
+          
+          
+          for( i=0;i<q;i++)
+          {
+              // bitset<32> b1(qur[i]);
+              // if(b1.test(1))
+              // {
+              //     swap(&odd, &even);
+              // }
+              if((qur[i]>>0) &1)
+              {
+                  swap(odd, even);
+              }
+          }
+         cout<<even<<" "<<odd<<endl;
    }
         
         
