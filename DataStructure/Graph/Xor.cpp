@@ -47,7 +47,7 @@ int main()
             cin>>qur[i];
          }
           
-          
+          // for testing bit is set or not
           for( i=0;i<q;i++)
           {
               // bitset<32> b1(qur[i]);
@@ -60,7 +60,9 @@ int main()
                   swap(odd, even);
               }
           }
-         cout<<even<<" "<<odd<<endl;
+
+         cout<<even<<" "<<odd;
+         cout<<endl;
    }
         
         
