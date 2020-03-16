@@ -4,13 +4,7 @@ using namespace std;
 #define mod 1000000007
 typedef long long int LL;
  
-void swap(long long int* x, long long int* y)
-{
-   if (x != y)
-   {
-      *x^=*y^=*x^=*y;
-   }
-}
+
  
 int main()
 {
@@ -47,23 +41,28 @@ int main()
             cin>>qur[i];
          }
           
-          // for testing bit is set or not
           for( i=0;i<q;i++)
           {
-              // bitset<32> b1(qur[i]);
-              // if(b1.test(1))
-              // {
-              //     swap(&odd, &even);
-              // }
-              if((qur[i]>>0) &1)
+              bitset<32> b1(qur[i]);
+              if(b1.test(1))
               {
-                  swap(odd, even);
+                  cout<<even<<" ";
               }
+              else
+              {
+                cout<<odd<<" ";
+              }
+              // if((qur[i]>>0) &1)
+              // {
+              //     cout<<even<<" ";
+              // }
+              // else
+              // {
+              //     cout<<odd<<" ";
+              // }
           }
 
-         cout<<even<<" "<<odd;
-         cout<<endl;
-         cout<<endl;
+         
    }
         
         
