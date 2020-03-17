@@ -43,23 +43,7 @@ int main()
           
           for( i=0;i<q;i++)
           {
-              bitset<32> b1(qur[i]);
-              if(b1.test(1))
-              {
-                  cout<<even<<" ";
-              }
-              else
-              {
-                cout<<odd<<" ";
-              }
-              // if((qur[i]>>0) &1)
-              // {
-              //     cout<<even<<" ";
-              // }
-              // else
-              // {
-              //     cout<<odd<<" ";
-              // }
+              
           }
 
          
