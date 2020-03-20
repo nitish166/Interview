@@ -16,26 +16,50 @@ int main()
 	}
 
 	int first=INT_MIN, second =INT_MAX;
+	// for(int i=0;i<n;i++)
+	// {
+	// 	if(arr[i]>first)
+	// 	{
+	// 		second=first;
+	// 		first=arr[i];
+	// 	}
+	// 	else if(arr[i]>second && arr[i] !=first)
+	// 	{
+	// 		second = arr[i];
+	// 	}
+	// }
+
 	for(int i=0;i<n;i++)
 	{
 		if(arr[i]>first)
 		{
 			second=first;
 			first=arr[i];
-		}
-		else if(arr[i]>second && arr[i] !=first)
-		{
-			second = arr[i];
+
 		}
 	}
 
-	if(second==INT_MIN)
+	//cout<<first<<endl;
+	for(int i=0;i<n;i++)
 	{
-		return -1;
+		if(arr[i]==first)
+		{
+			continue;
+		}
+		if(arr[i]>second)
+		{
+			second=arr[i];
+		}
 	}
-	else
-	{
-		cout<<second<<endl;
-	}
+	cout<<second<<endl;
+
+	// if(second==INT_MIN)
+	// {
+	// 	return -1;
+	// }
+	// else
+	// {
+	// 	cout<<second<<endl;
+	// }
 return 0;
 }
