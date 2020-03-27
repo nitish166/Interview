@@ -34,9 +34,6 @@ int main()
     		count1++;
     	}
 
-    	// cout<<count<<" "<<count1<<endl;
-    	// cout<<n<<endl;
-
     	if(count==count1)
     	{
     		cout<<x<<endl;
