@@ -48,6 +48,37 @@ void updateTree(int* arr, int* tree, int start, int end, int treeNode, int idx, 
 }
 
 
+// query Problem
+
+int query(int* tree, int start, int end, int treeNode, int left, int right)
+{
+	// completly outside given range
+
+	if(start>right || end<left)
+	{
+		return 0;
+	}
+
+	// completly inside given range
+
+	if(start>=left && end<=right)
+	{
+		return tree[treeNode];
+	}
+
+	// partialy inside and partialy outside given range
+
+	int mid = (start+end)/2;
+
+	int ans1 = query(tree, mid, end, 2*treeNode+1, left, right);
+	int ans2 = query(tree, start, end, 2*treeNode, left, right);
+
+	return ans1+ans2;
+
+
+}
+
+
 int main()
 {
 	int arr[] = {1, 2, 3, 4, 5};
@@ -70,6 +101,11 @@ int main()
 	{
 		cout<<tree[i]<<endl;
 	}
+
+
+	int ans = query(tree, 0, 4, 1, 2, 4);
+	cout<<"Sum between interval is ";
+	cout<<ans<<endl;
 
 	return 0;
 }
