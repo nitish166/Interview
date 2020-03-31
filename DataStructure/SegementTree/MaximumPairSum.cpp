@@ -8,57 +8,91 @@ struct node
 };
 
 
-void buildTree(int* arr, node* tree, int start, int end, int Indexnode)
+void buildTree(int* arr, node* tree, int treeNode, int start, int end)
 {
 	if(start==end)
 	{
-		tree[Indexnode].maximum = arr[start];
-		tree[Indexnode].smaximum = INT_MIN;
+		tree[treeNode].maximum = arr[start];
+		tree[treeNode].smaximum = INT_MIN;
 		return;
 	}
 
 	int mid = (start+end)/2;
 
-	buildTree(arr, tree, start, mid, 2*Indexnode);
-	buildTree(arr, tree, mid+1, end, 2*Indexnode+1);
+	buildTree(arr, tree, 2*treeNode, start, mid);
+	buildTree(arr, tree, 2*treeNode+1, mid+1, end);
 
-	node left = tree[2*Indexnode];
-	node right = tree[2*Indexnode+1];
+	node left = tree[2*treeNode];
+	node right = tree[2*treeNode+1];
 
-	tree[Indexnode].maximum =  max(left.maximum, right.maximum);
-	tree[Indexnode].smaximum = min(max(left.maximum, right.smaximum), max(right.maximum, left.smaximum));
+	tree[treeNode].maximum =  max(left.maximum, right.maximum);
+	tree[treeNode].smaximum = min(max(left.maximum, right.smaximum), max(right.maximum, left.smaximum));
 	return;
 }
 
 
 
-int query(int* arr, node* tree, int start, int end, node Indexnode, int left, int right)
+int query(node* tree, int start, int end, int Indexnode, int l, int r)
 {
 	// completly outside
 
-	if(start>right || end<left)
+	if(start>r || end<l)
 	{
 		return INT_MAX;
 	}
 
 	// completly inside
 
-	if(start>=left && end<=right )
+	if(start>=l && end<=r )
 	{
-		return tree[Indexnode];
+		return tree[Indexnode].maximum+tree[Indexnode].smaximum;
 	}
 
 	// partialy inside and partialy outside
 
 	int mid = (start+end)/2;
 
-	int ans1 = query(arr, tree, start, mid, 2*Indexnode, left, right);
-	int ans2 = query(arr, tree, mid+1, end, 2*Indexnode+1, left, right);
+	int ans1 = query(tree, start, mid, 2*Indexnode, l, r);
+	int ans2 = query(tree, mid+1, end, 2*Indexnode+1, l, r);
+
+	
 
 	return ans1+ans2;
+}
 
+
+void update(int* arr, node* tree, int start, int end, int Indexnode, int idx, int value)
+{
+	if(start==end)
+	{
+		arr[idx] = value;
+		tree[Indexnode].maximum = value;
+		return;
+	}
+	else
+	{
+		int mid = (start+end)/2;
+		if(idx>=start && idx<=mid)
+		{
+			update(arr, tree, start, mid, 2*Indexnode, idx, value);
+		}
+		else
+		{
+			update(arr, tree, mid+1, end, 2*Indexnode+1, idx, value);
+		}
+
+		node left = tree[2*Indexnode];
+		node right = tree[2*Indexnode+1];
+
+		tree[Indexnode].maximum = max(left.maximum, right.maximum);
+		tree[Indexnode].smaximum = min(max(left.smaximum, right.maximum), max(right.smaximum, left.maximum));
+	}
+
+
+	
 
 }
+
 
 
 int main()
@@ -66,13 +100,19 @@ int main()
 	int n;
 	cin>>n;
 	int* arr = new int[n];
-	for(int i=1; i<=n; i++)
+	for(int i=0; i<n; i++)
 	{
 		cin>>arr[i];
 	}
 	node* tree = new node[3*n];
 
-	buildTree(arr, tree, 1 , n, 1);
+	buildTree(arr, tree, 1 , 0, n-1);
+
+
+	// for(int i=1; i<=3*n; i++)
+	// {
+	// 	cout<<tree[i].maximum <<" ,"<<tree[i].smaximum<<endl;
+	// }
 
 	int q;
 	cin>>q;
@@ -83,12 +123,12 @@ int main()
 		cin>>c>>left>>right;
 		if(c=='Q')
 		{
-			int ans =query(arr, tree, 1, n, 1, left, right);
+			int ans =query( tree, 1, n, 1, left, right);
 			cout<<ans<<endl;
 		}
 		else
 		{
-			update();
+			update(arr, tree, 1, n, 1, left, right);
 		}
 	}
 
