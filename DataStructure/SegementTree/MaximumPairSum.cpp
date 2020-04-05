@@ -32,7 +32,7 @@ void buildTree(int* arr, node* tree, int treeNode, int start, int end)
 
 
 
-int query(node* tree, int start, int end, int Indexnode, int l, int r)
+node query(node* tree, int start, int end, int Indexnode, int l, int r)
 {
 	// completly outside
 
@@ -45,7 +45,7 @@ int query(node* tree, int start, int end, int Indexnode, int l, int r)
 
 	if(start>=l && end<=r )
 	{
-		return tree[Indexnode].maximum+tree[Indexnode].smaximum;
+		return tree[Indexnode];
 	}
 
 	// partialy inside and partialy outside
