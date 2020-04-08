@@ -54,13 +54,13 @@ int main()
    		int n;
    		cin>>n;
 
-   		// allocated 2D array, (n+1)*(numD+1)
+   		// allocated 2D array of size (n+1)*(numD+1)
    		int size = (n+1)*(m+1);
    		int** output = new int*[size];
    		for(int i=0; i<size; i++)
    		{
    			output[i] = new int[size];
-   			for(int j=0; j<n; j++)
+   			for(int j=0; j<size; j++)
    			{
    				output[i][j] = -1;
    			}
