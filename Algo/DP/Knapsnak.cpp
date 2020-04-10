@@ -52,18 +52,42 @@ int knapsnak(int* val, int* wt, int W, int n)
 }
 
 
+// int main()
+// {
+ 
+//    ios_base:: sync_with_stdio(false); cin.tie(0);
+
+//    int val[] = {5,4, 8, 6};
+//    int wt[]  = {1, 2, 3, 5};
+
+//    int W=5;
+//    int n=4;
+
+//    cout<<knapsnak(val, wt, W, n)<<endl;
+
+//    return 0;
+// }
+
 int main()
 {
- 
-   ios_base:: sync_with_stdio(false); cin.tie(0);
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int n,W;
+		cin>>n>>W;
+		int* wt = new int[n];
+		int* val = new int[n];
+		for(int i=0;i<n;i++)
+		{
+			cin>>val[i];
+		}
+		for (int i = 0; i < n; ++i)
+		{
+			cin>>wt[i];
+		}
 
-   int val[] = {5,4, 8, 6};
-   int wt[]  = {1, 2, 3, 5};
-
-   int W=5;
-   int n=4;
-
-   cout<<knapsnak(val, wt, W, n)<<endl;
-
-   return 0;
+		cout<<knapsnak(val, wt, W, n)<<endl;
+	}
+	return 0;
 }
