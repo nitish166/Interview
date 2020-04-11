@@ -1,5 +1,6 @@
 // TimeComplexity: O(n*m)
-
+// O(n) = length of string 
+// O(m) = length of pattern
 
 #include<bits/stdc++.h>
 using namespace std;
