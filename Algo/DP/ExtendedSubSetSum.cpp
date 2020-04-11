@@ -1,5 +1,7 @@
 //  using flag
 //  used 2 row and column are same 
+//  Pending (Still need to improve)
+//  issue: segementation fault
 
 #include<bits/stdc++.h>
 using namespace std;
