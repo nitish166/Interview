@@ -7,7 +7,7 @@ int* kgetLps(string pattern)
 	int len = pattern.length();
 	int* lps = new int[len];
 
-	lsp[0] = 0;
+	lps[0] = 0;
 	int i=1;
 	int j=0;
 
@@ -25,7 +25,7 @@ int* kgetLps(string pattern)
 			}
 			else
 			{
-				lsp[i] =0;
+				lps[i] =0;
 				i++;
 			}
 		}
