@@ -49,9 +49,24 @@ bool subsetSum(int* val, int n, int sum)
 int main()
 {
  
-   ios_base:: sync_with_stdio(false); cin.tie(0);
-   int val[] = {1, 3, 5, 7, 9};
-   int sum = 12;
-   cout<<subsetSum(val, 5, sum)<<endl;
-   return 0;
+    ios_base:: sync_with_stdio(false); cin.tie(0);
+    int n;
+    cin>>n;
+    int* val = new int[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>val[i];
+    }
+    
+    int k;
+    cin>>k;
+    if(subsetSum(val, n, k))
+    {
+        cout<<"Yes"<<endl;
+    }
+    else
+    {
+        cout<<"No"<<endl;
+    }
+    return 0;
 }
