@@ -51,5 +51,16 @@ vector<base> fft(vector<base> &a, vector<base> &omega)
 
 int main()
 {
+	vector<base> a;
+	a.push_back(1);
+	a.push_back(2);
+	a.push_back(3);
+	a.push_back(4);
+	vector<base> omega = init_omega(a.size());
+	vector<base> y = fft(a, omega);
+	for(int i=0; i<y.size(); i++)
+	{
+		cout<<y[i]<<endl;
+	}
 	return 0;
 }
