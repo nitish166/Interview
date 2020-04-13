@@ -1,5 +1,6 @@
 // Time Complexity : O(n*2^n)
 // Count total number of subset with sum k
+// 2^n == (1<<n)
 #include<bits/stdc++.h>
 using namespace std;
 #define endl "\n"
@@ -9,7 +10,7 @@ typedef long long int LL;
 int CountSubset(int* arr, int n, int k)
 {
 	int count=0;
-	for(int mask=0; mask<2^n-1; mask++)
+	for(int mask=0; mask<(1<<n); mask++)
 	{
 		int sum=0;
 		for(int j=0;j<n;j++)
@@ -24,7 +25,6 @@ int CountSubset(int* arr, int n, int k)
 			count++;
 		}
 	}
-	cout<<count<<endl;
 
 	return count;
 }
@@ -46,6 +46,7 @@ int main()
    int arr[] ={2,3,5};
    int k=5;
    int ans = CountSubset(arr, 3, k);
+   cout<<"Total Number of Count Bit :"<<endl;
    cout<<ans<<endl;
    return 0;
 }

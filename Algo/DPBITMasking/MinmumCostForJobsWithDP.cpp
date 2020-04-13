@@ -47,5 +47,6 @@ int main()
    }
    cout<<"Minmum Cost :"<<endl;
    cout<<minCost(cost,4,0,0, dp)<<endl;
+   cout<<dp[0]<<endl;
    return 0;
 }
