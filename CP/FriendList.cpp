@@ -10,6 +10,7 @@ int main()
 		arr[i] =0;
 	}
 
+    // incrementing the count of array element
 	for(int i=0; i<n; i++)
 	{
 		int p1, p2;
@@ -26,6 +27,8 @@ int main()
 			max = arr[i];
 		}
 	}
+
+	// whose player of this value of max
 
 	for(int i=0; i<1001; i++)
 	{
