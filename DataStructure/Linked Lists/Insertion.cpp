@@ -99,6 +99,7 @@ void printList(Node* node)
 
 
 
+
 int main()
 {
 	Node* head = NULL;
@@ -109,6 +110,8 @@ int main()
 	push(&head, 1);
 
 	append(&head, 4);
+
+	append(&head, 12)
 
 	insertAfter(head->next, 8);
 
