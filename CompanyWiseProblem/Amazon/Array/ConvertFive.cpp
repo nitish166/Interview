@@ -1,7 +1,8 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <string>
 using namespace std;
 
-void convertFive(int n)
+int convertFive(int n)
 {
 	vector<int> ans;
 
@@ -25,10 +26,15 @@ void convertFive(int n)
 
 	reverse(ans.begin(), ans.end());
 
+	string str="";
+
 	for(int i=0; i<ans.size(); i++)
 	{
-		cout<<ans[i];
+		str += to_string(ans[i]);
 	}
+
+	int res = stoi(str);
+	return res;
 
 }
 
@@ -41,7 +47,7 @@ int main()
 	{
 		int n;
 		cin>>n;
-		convertFive(n);
+		cout<<convertFive(n);
 		cout<<endl;
 	}
 }
