@@ -1,9 +1,35 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int convertFive(int n)
+void convertFive(int n)
 {
-	
+	vector<int> ans;
+
+
+	while(n!=0)
+	{
+		int r = n%10;
+		ans.push_back(r);
+		n = n/10;
+	}
+
+
+	for(int i=0; i<ans.size(); i++)
+	{
+		if(ans[i]==0)
+		{
+			ans[i]=5;
+		}
+	}
+
+
+	reverse(ans.begin(), ans.end());
+
+	for(int i=0; i<ans.size(); i++)
+	{
+		cout<<ans[i];
+	}
+
 }
 
 
@@ -15,6 +41,7 @@ int main()
 	{
 		int n;
 		cin>>n;
-		cout<<convertFive(n)<<endl;
+		convertFive(n);
+		cout<<endl;
 	}
 }
