@@ -2,34 +2,72 @@
 using namespace std;
 
 
+// void MaxAndSecMax(int* arr, int n)
+// {
+// 	sort(arr, arr+n, greater<int>());
+
+// 	set<int> s;
+// 	vector<int> ans;
+// 	for(int i=0; i<n;i++)
+// 	{
+// 		if(s.find(arr[i]) ==s.end())
+// 		{
+// 			s.insert(arr[i]);
+// 			ans.push_back(arr[i]);
+// 		}
+// 	}
+
+// 	int smax = INT_MIN;
+// 	int fmax = INT_MIN;
+
+// 	fmax = ans[0];
+// 	smax = ans[1];
+
+// 	if(ans.size()<2)
+// 	{
+// 		smax =-1;
+// 	}
+
+	
+// 	cout<<fmax<<" "<<smax<<endl;
+// }
+
+
+// 2nd method
+
+
 void MaxAndSecMax(int* arr, int n)
 {
-	sort(arr, arr+n, greater<int>());
+	int max = INT_MIN, max2 = INT_MIN;
 
-	set<int> s;
-	vector<int> ans;
-	for(int i=0; i<n;i++)
+	// iterating through the array and and comparing the elements
+	// to find max and second max
+	for(int i=0; i<n; i++)
 	{
-		if(s.find(arr[i]) ==s.end())
+		// if current element is greater than max
+		// update max
+		if(arr[i]>max)
 		{
-			s.insert(arr[i]);
-			ans.push_back(arr[i]);
+			max2 = max;
+			max = arr[i];
+		}
+
+		// if current element is greater than max
+		// update the max
+		else if(arr[i]>max2 && arr[i] !=max)
+		{
+			max2 = arr[i];
 		}
 	}
 
-	int smax = INT_MIN;
-	int fmax = INT_MIN;
+	// if no max2 exists, assign max2 as -1
 
-	fmax = ans[0];
-	smax = ans[1];
-
-	if(ans.size()<2)
+	if(max2 == INT_MIN)
 	{
-		smax =-1;
+		max2 -1;
 	}
 
-	
-	cout<<fmax<<" "<<smax<<endl;
+	cout<< max <<" "<<max2<<endl;
 }
 
 
