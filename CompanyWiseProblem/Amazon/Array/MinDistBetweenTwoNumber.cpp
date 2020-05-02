@@ -1,5 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+int minDis(int* arr, int n, int x, int y)
+{
+		int pre_index =-1;
+		int min_dis = INT_MAX;
+		for(int i=0; i<n;i++)
+		{
+			if(arr[i]==x || arr[i]==y)
+			{
+				if(pre_index !=-1 && arr[i] !=arr[pre_index])
+				{
+					min_dis = min(min_dis, i-pre_index);
+				}
+
+				// update the previous index
+				pre_index=i;
+			}
+		}
+
+		// if distance is equal to int max
+
+		if(min_dis == INT_MAX)
+		{
+			return -1;
+		}
+
+		return min_dis;
+
+}
+
+
 int main()
 {
 	int t;
@@ -15,32 +46,8 @@ int main()
 		}
 		int x, y;
 		cin>>x>>y;
-		int d1=0, d2=0;
-		for(int i=0; i<n; i++)
-		{
-			if(arr[i]==x)
-			{
-				d1=i;
-				break;
-			}
-		}
-		for(int i=0; i<n; i++)
-		{
-			if(arr[i]==y)
-			{
-				d2=i;
-				break;
-			}
-		}
-		if(d1==0 && d2==0)
-		{
-			cout<<"-1"<<endl;
-		}
-		else
-		{
-			int ans = d2-d1;
-			cout<<ans<<endl;
-		}
+		int ans =minDis(arr, n, x, y);
+		cout<<ans<<endl;
 	}
 	return 0;
 }
