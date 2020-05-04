@@ -2,6 +2,10 @@
 using namespace std;
 
 
+// Bruit Force method
+// Time Complexity: O(n*n)
+
+
 void removeDuplicate(vector<int> &vect)
 {
 	int indx=1;
@@ -25,6 +29,19 @@ void removeDuplicate(vector<int> &vect)
 	// remove element from vect[indx] to vect[end]
 	vect.erase(vect.begin()+indx, vect.end());
 }
+
+
+// Time Complexity: O(nlogn)
+// Sorting Technique
+
+void removeDuplicate(vector<int> &vect)
+{
+	sort(vect.begin(), vect.end());
+
+	vect.erase(unique(vect.begin(), vect.end()), vect.end());
+}
+
+
 
 
 
