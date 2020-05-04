@@ -43,6 +43,18 @@ void removeDuplicate(vector<int> &vect)
 
 
 
+// Time Complexity: O(n)
+// Hashing Technique
+
+void removeDuplicate(vector<int> &vect)
+{
+	// Create a set from vector elements
+	unordered_set<int> s(vect.begin(), vect.end());
+
+	// take element from set and put back in vect[]
+	vect.assign(s.begin(), s.end());
+}
+
 
 
 int main()
