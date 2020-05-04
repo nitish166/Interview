@@ -25,6 +25,7 @@ int maxLen(int* arr, int n)
 	return count;
 }
 
+// Time Complexity O(n)
 
 int maxLen(int* arr, int n)
 {
