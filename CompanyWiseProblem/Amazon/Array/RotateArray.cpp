@@ -47,36 +47,19 @@ int main()
 	cin>>t;
 	while(t--)
 	{
-		int n;
-		cin>>n;
+		int n,d;
+		cin>>n>>d;
 		int* arr = new int[n];
 		for(int i=0;i<n;i++)
 		{
 			cin>>arr[i];
 		}
-		vector<int> ans;
-		int d=0;
-		int sum=0;
-		while(d<n)
-		{
-			rotateArray(arr, n, d);
-			for(int i=0;i<n;i++)
-			{
-				sum +=arr[i]*i;
-			}
-			ans.push_back(sum);
-			sum=0;
-			d++;
-		}
-		sort(ans.begin(), ans.end(), greater<int>());
 
-		//cout<<ans[0]<<endl;
-		for(int i=0; i<ans.size(); i++)
+		rotateArray(arr, n, d);
+		for(int i=0;i<n;i++)
 		{
-			cout<<i<<"  "<<ans[i]<<endl;
+			cout<<arr[i]<<" ";
 		}
-		
-		
 		cout<<endl;
 	}
 }

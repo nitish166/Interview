@@ -1,45 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int gcd(int a, int b)
-{
-	if(b==0)
-	{
-		return a;
-	}
-	else
-	{
-		return gcd(b, a%b);
-	}
-}
 
+// Bruteforce Solution
+// Time Complexity: O(n^2)
 
-void rotateArray(int* arr, int n, int d)
+int SumInConfiguration(int* arr, int n)
 {
-	d = d%n;
-	int g_c_d = gcd(d,n);
-	for(int i=0; i<g_c_d; i++)
+	int curr_max = INT_MIN;
+	for(int i=0; i<n; i++)
 	{
-		int temp = arr[i];
-		int j =i;
-		while(true)
+		int curr_sum=0;
+		for(int j=0; j<n; j++)
 		{
-			int k = j+d;
-			if(k>=n)
-			{
-				k = k-n;
-			}
-			if(k==i)
-			{
-				break;
-			}
-			arr[j] = arr[k];
-			j = k;
-
+			int idx = (i+j)%n;
+			curr_sum += arr[idx]*j;
 		}
-		arr[j] = temp;
+		curr_max = max(curr_max, curr_sum);
 	}
+	return curr_max;
 }
+
 
 int main()
 {
@@ -54,29 +35,8 @@ int main()
 		{
 			cin>>arr[i];
 		}
-		vector<int> ans;
-		int d=0;
-		int sum=0;
-		while(d<n)
-		{
-			rotateArray(arr, n, d);
-			for(int i=0;i<n;i++)
-			{
-				sum +=arr[i]*i;
-			}
-			ans.push_back(sum);
-			sum=0;
-			d++;
-		}
-		sort(ans.begin(), ans.end(), greater<int>());
-
-		cout<<ans[0]<<endl;
-		// for(int i=0; i<ans.size(); i++)
-		// {
-		// 	cout<<i<<"  "<<ans[i]<<endl;
-		// }
 		
-		
-		cout<<endl;
+		int ans =SumInConfiguration(arr, n);
+		cout<<ans<<endl;
 	}
 }
