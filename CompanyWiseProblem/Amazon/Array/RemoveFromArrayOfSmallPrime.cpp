@@ -5,7 +5,6 @@ using namespace std;
 // Bruit Force method
 // Time Complexity: O(n*n)
 
-
 void removeDuplicate(vector<int> &vect)
 {
 	int indx=1;
@@ -33,7 +32,6 @@ void removeDuplicate(vector<int> &vect)
 
 // Time Complexity: O(nlogn)
 // Sorting Technique
-
 void removeDuplicate(vector<int> &vect)
 {
 	sort(vect.begin(), vect.end());
@@ -45,7 +43,6 @@ void removeDuplicate(vector<int> &vect)
 
 // Time Complexity: O(n)
 // Hashing Technique
-
 void removeDuplicate(vector<int> &vect)
 {
 	// Create a set from vector elements
@@ -54,7 +51,6 @@ void removeDuplicate(vector<int> &vect)
 	// take element from set and put back in vect[]
 	vect.assign(s.begin(), s.end());
 }
-
 
 
 int main()

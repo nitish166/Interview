@@ -70,11 +70,11 @@ int main()
 		}
 		sort(ans.begin(), ans.end(), greater<int>());
 
-		//cout<<ans[0]<<endl;
-		for(int i=0; i<ans.size(); i++)
-		{
-			cout<<i<<"  "<<ans[i]<<endl;
-		}
+		cout<<ans[0]<<endl;
+		// for(int i=0; i<ans.size(); i++)
+		// {
+		// 	cout<<i<<"  "<<ans[i]<<endl;
+		// }
 		
 		
 		cout<<endl;
