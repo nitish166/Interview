@@ -3,6 +3,7 @@ using namespace std;
 
 
 // Brute Force solution
+// Not Efficent solution
 // Time Complexity: O(n*n)
 
 
@@ -35,6 +36,40 @@ int EquilibrumPoint(int* arr, int n)
 		}
 	}
 	// retrun -1 if no equlibrum index is found
+	return -1;
+}
+
+
+
+
+// Time Complexity: O(n*n)
+// Efficent Solution
+
+int EquilibrumPoint(int* arr, int n)
+{
+	int sum=0;
+	// get the total sum
+	for(int i=0; i<n; i++)
+	{
+		sum +=arr[i];
+	}
+
+	int lsum=0;
+	for(int i=0;i<n;i++)
+	{
+		// update sum to get the right sum
+		// sum is now right sum
+		sum = sum-arr[i];
+
+		// lsum and sum, both are equal then return index i
+		if(lsum==sum)
+		{
+			return i;
+		}
+		// update leftsum for the next iteration
+		lsum +=arr[i];
+	}
+	// if there is no equilibrum point retrun -1!
 	return -1;
 }
 

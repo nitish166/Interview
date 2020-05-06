@@ -65,6 +65,11 @@ int SumInConfiguration(int* arr, int n)
 }
 
 
+
+
+
+
+
 int main()
 {
 	int t;
