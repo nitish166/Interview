@@ -42,7 +42,7 @@ int EquilibrumPoint(int* arr, int n)
 
 
 
-// Time Complexity: O(n*n)
+// Time Complexity: O(n)
 // Efficent Solution
 
 int EquilibrumPoint(int* arr, int n)
