@@ -5,8 +5,6 @@ using namespace std;
 // Brute Force solution
 // Not Efficent solution
 // Time Complexity: O(n*n)
-
-
 int EquilibrumPoint(int* arr, int n)
 {
 	int lsum, rsum;
@@ -40,11 +38,8 @@ int EquilibrumPoint(int* arr, int n)
 }
 
 
-
-
 // Time Complexity: O(n)
 // Efficent Solution
-
 int EquilibrumPoint(int* arr, int n)
 {
 	int sum=0;
