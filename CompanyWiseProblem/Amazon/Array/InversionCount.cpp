@@ -4,25 +4,25 @@ using namespace std;
 
 // BruteForce Solution
 // Time Complexity: O(n^2)
-// int InversionCount(int* arr, int n)
-// {
-// 	int count=0;
-// 	for(int i=0; i<n; i++)
-// 	{
-// 		for(int j=i+1; j<n; j++)
-// 		{
-// 			if(arr[i]>arr[j])
-// 			{
-// 				count++;
-// 			}
-// 		}
-// 	}
-// 	if(count !=0)
-// 	{
-// 		return count;
-// 	}
-// 	return 0;
-// }
+int InversionCount(int* arr, int n)
+{
+	int count=0;
+	for(int i=0; i<n; i++)
+	{
+		for(int j=i+1; j<n; j++)
+		{
+			if(arr[i]>arr[j])
+			{
+				count++;
+			}
+		}
+	}
+	if(count !=0)
+	{
+		return count;
+	}
+	return 0;
+}
 
 
 // Using BIT method
