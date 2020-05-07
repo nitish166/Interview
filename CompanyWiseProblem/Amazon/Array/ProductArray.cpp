@@ -1,11 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Brute Force solution
+// Time Complexity: O(n*n)
 
 void ProductArray(int* arr, int n)
 {
 	vector<int> ans;
-	
 	int prod;
 	for(int i=0; i<n; i++)
 	{
@@ -14,21 +15,16 @@ void ProductArray(int* arr, int n)
 		{
 			if(i!=j)
 			{
-				prod *=arr[j]; 
-				
+				prod *=arr[j]; 	
 			}
 		}
 		ans.push_back(prod);
-
 	}
-
-
 	for(int i=0; i<ans.size(); i++)
 	{
 		cout<<ans[i]<<" ";
 	}
 }
-
 
 
 int main()
@@ -44,7 +40,6 @@ int main()
 		{
 			cin>>arr[i];
 		}
-
 		ProductArray(arr, n);
 		cout<<endl;
 	}
