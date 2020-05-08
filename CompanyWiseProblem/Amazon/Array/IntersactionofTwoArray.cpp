@@ -4,39 +4,22 @@ int NumberofElementsInintersection(int a[], int b[], int n, int m);
 
 int NumberofElementsInintersection(int a[], int b[], int n, int m)
 {
-	vector<int> ans;
-    for(int i=0; i<n; i++)
-    {
-        ans.push_back(a[i]);
-    }
-    
-    for(int i=n; i<m; i++)
-    {
-        ans.push_back(b[i]);
-    }
-    
+	set<int> s;
+	for(int i=0; i<n; i++)
+	{
+		s.insert(a[i]);
+	}
 
-    for(int i=0; i<ans.size(); i++)
-    {
-    	cout<<ans[i]<<" ";
-    }
+	int count=0;
+	for(int i=0; i<m; i++)
+	{
+		if(s.find(b[i]) != s.end())
+		{
+			count++;
+		}
+	}
 
-    // map<int, int> m;
-    // for(int i=0; i<ans.size(); i++)
-    // {
-    //     m[ans[i]]++;
-    // }
-    
-    // map<int, int>:: iterator it;
-    // int count=0;
-    // for(it = m.begin(); it!=m.end(); it++)
-    // {
-    //     if(it->second>=2)
-    //     {
-    //         count++;
-    //     }
-    // }
-    // return count;
+	return count;
 }
 
 int main()
