@@ -25,6 +25,28 @@ void rearrangeArray(int* arr, int n)
 }
 
 
+// Time complexity : O(n)
+// Space complexity: O(1)
+
+
+void rearrangeArray(int* arr, int n)
+{
+	for(int i=0; i<n; i++)
+	{
+		arr[i] += (arr[arr[i]]%n)*n;
+	}
+
+	for(int i=0; i<n; i++)
+	{
+		arr[i] /=n;
+	}
+
+	for(int i=0; i<n; i++)
+	{
+		cout<<arr[i]<<" ";
+	}
+}
+
 int main()
 {
 	int t;
