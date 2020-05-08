@@ -11,15 +11,19 @@ int NumberofElementsInintersection(int a[], int b[], int n, int m)
 	}
 
 	int count=0;
+	vector<int> ans;
 	for(int i=0; i<m; i++)
 	{
 		if(s.find(b[i]) != s.end())
 		{
-			count++;
+			ans.push_back(b[i]);
 		}
 	}
 
-	return count;
+	for(int i=0; i<ans.size()-1; i++)
+	{
+		cout<<ans[i]<<" ";
+	}
 }
 
 int main()
