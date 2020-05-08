@@ -24,10 +24,8 @@ void rearrangeArray(int* arr, int n)
 	}
 }
 
-
 // Time complexity : O(n)
 // Space complexity: O(1)
-
 
 void rearrangeArray(int* arr, int n)
 {
