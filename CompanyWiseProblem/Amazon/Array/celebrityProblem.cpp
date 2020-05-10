@@ -47,10 +47,21 @@ int know(int a, int b, int** mat)
 
 int getId(int** mat, int n)
 {
-	// This about this test case?
+	// What about this test case?
 	if(n==2)
 	{
-		return -1;
+		if(mat[0][0]==0 && mat[0][1]==0) 
+		{
+			return 0;
+		}
+		else if((mat[1][0]==0 && mat[1][1]==0))
+		{
+			return 1;
+		}
+		else
+		{
+		    return -1;
+		}
 	}
 	stack<int> s;
 
@@ -85,6 +96,8 @@ int getId(int** mat, int n)
 			s.pop();
 		}
 	}
+
+
 
 	// potential candidate?
 
