@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
+// Brute Force Solution
 // Time Complexity: O(n^2)
 
 int know(int a, int b, int** mat)
@@ -33,6 +33,11 @@ int getId(int** mat, int n)
 
 	return -1;
 }
+
+
+
+
+
 
 
 int main()
