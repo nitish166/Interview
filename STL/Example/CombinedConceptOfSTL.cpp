@@ -121,3 +121,311 @@ void explainVector()
 	v.clear(); // erase the entrie vectore
 	cout<< v.empty();
 }
+
+void explainList(){
+	list<int> ls;
+	ls.push_back(2); // {2}
+	ls.emplace_back(4); // {2,4}
+
+	ls.push_front(5); // {5,2,4}
+
+	ls.emplace_front(); //{2,4}
+
+	// rest function same as vector
+	// begin, end, rbegin, rend, clear, insert, size, swap
+}
+
+void explainDeque(){
+	deque<int> dq;
+	dq.push_back(1); //{1}
+	dq.emplace_back(2); // {1,2}
+	dq.push_front(4); // {4,1,2}
+	dq.emplace_front(3); // {3,4,1,2}
+
+
+	dq.pop_back(); // {3,4,1}
+	dq.pop_front(); // {4,1}
+
+	dq.back();
+	dq.front();
+
+	// rest function same as vector
+	// begin, end, rbegin, rend, clear, insert, size, swap
+}
+
+void explainStack()
+{
+	stack<int> st;
+	st.push(1); // {1}
+	st.push(2); // {2, 1}
+	st.push(3); // {3, 2, 1}
+	st.push(3); // {3, 3, 2, 1}
+	st.emplace(5); // {5, 3, 3, 2, 1}
+
+	cout << st.top(); // print 5 "** st[2] is invalid **"
+
+	st.pop(); // st looks like {3, 3, 2, 1}
+
+	cout<< st.top();  // 3
+
+	cout << st.size();
+
+	cout << st.empty();
+
+	stack<int> st1, st2;
+	st1.swap(st2);
+}
+
+
+void explainQueue()
+{
+	queue<int> q;
+	q.push(1); // {1}
+	q.push(2); // {1, 2}
+	q.emplace(4); // {1,2,4}
+
+	q.back() +=5;
+
+	cout<< q.back(); // print 9
+
+	// q is {1,2,9}
+	cout<<q.front(); // print 1
+
+	q.pop(); // {2,9}
+
+	cout<< q.front(); // print 2
+
+	// size swap empty same as stack
+
+}
+
+
+void explainPQ()
+{
+	priority_queue<int> pq;
+
+	pq.push(5); // {5}
+	pq.push(2); // {5,2}
+	pq.push(8); // {8,5,2}
+	pq.emplace(10); // {10, 8, 5, 2}
+
+	cout<<pq.top(); // print 10
+
+	pq.pop(); // {8,5,2}
+
+	cout<< pq.top(); // print 8
+
+	// size swap empty function same as others
+
+
+	// Minumum Heap
+
+	priority_queue<int, vector<int>, greater<int>> pq;
+
+	pq.push(5); // {5}
+	pq.push(2); // {2, 5}
+	pq.push(8); // {2, 5, 8}
+	pq.emplace(10); // {2, 5, 8, 10}
+
+	cout<< pq.top(); // prints 2
+}
+
+void explainSet()
+{
+	set<int> st;
+	st.insert(1);  // {1}
+	st.emplace(2); // {1, 2}
+	st.insert(2);  // {1, 2}
+	st.insert(4);  // {1, 2, 4}
+	st.insert(3);  // {1, 2, 3, 4}
+
+
+
+	// Functionality of insert in vector
+	// can be used also, that only increases
+	// efficiency
+
+	// begin(), end(), rbegin(), rend(), size()
+	// empty() ans swap() are same as those of above
+
+	// {1, 2, 3, 4, 5}
+	auto it = st.find(3);
+
+	// {1, 2, 3, 4, 5}
+	auto it = st.find(6);
+
+	// {1, 4, 5}
+	st.erase(5); // erase 5 // takes logarithmic time
+
+	auto it = st.find(3);
+	st.erase(it); // it takes constant time
+
+	// {1, 2, 3, 4, 5}
+
+	auto it1 = st.find(2);
+	auto it2 = st.find(4);
+
+	st.erase(it1, it2);  // after erase {1, 4, 5}
+
+	// lower_bound and upper_bound() function works in the same way
+	// as in vector it does
+
+	// This is the syntax
+
+	auto it = st.lower_bound(2);
+	auto it = st.upper_bound(3);
+}
+
+
+void explainMultiSet()
+{
+	// Everything is same as set
+	// only stores dupliate elements also
+
+	multiset<int> ms;
+	ms.insert(1); // {1}
+	ms.insert(1); // {1, 1}
+	ms.insert(1); // {1, 1, 1}
+
+	ms.erase(1); // all 1's erased
+
+	// only a single one erased
+	ms.erase(ms.find(1));
+
+
+	ms.erase(ms.find(1), ms.find(1)+2);
+	// rest all function same as set
+}
+
+void explainUSet()
+{
+	unordered_set<int> st;
+	// lower_bound and upper_bound function
+	// does not works, rest all function are same
+	// as above, it does not stores in any
+	// particular order it has a beeter complexity
+	// than set in most cases, except some when collision happens
+
+}
+
+
+void explainMap()
+{
+	// {key, value}
+	map<int, int> mpp;
+
+	map<int, pair<int, int>> mpp;
+
+	map< pair<int, int>, int> mpp;
+
+	// key value can be anything
+
+	mpp[1] =2;
+	mpp.emplace({3,1});
+
+	mpp.insert({2,4});
+	{
+		{1, 2}
+		{2, 4}
+		{3, 1}
+	}
+
+	for(auto it: mpp)
+	{
+		cout<< it.first << " " << it.second <<endl;
+	}
+
+	// same options for using iterators
+	// as we did in vector for the insert function
+
+	cout<< mpp[1]; // prints 2
+	cout<< mpp[5]; // print 0, since it does not exists
+
+
+	auto it = mpp.find(3); // point to the position where 3 is found
+	cout<< *(it).second;
+	auto it = mpp.find(5); // point to the end of the map since 5 not there
+
+
+	// lower_bound and upper_bound works eactly in the
+	// same way as explained in the other video
+
+	// this is the syntax
+	auto it = mpp.lower_bound(2);
+
+	auot it = mpp.upper_bound(3);
+
+	// erase, swap, size, empty, are same as above
+
+
+}
+
+void explainMultimap()
+{
+	// everything same as map, only it can store multiple keys
+	// only mpp[key] cannot be used here
+}
+
+
+void explainUnorderedMap()
+{
+	// same as set and unordered_Set difference
+}
+
+
+bool comp(pair<int, int>p1, pair<int, int>p2)
+{
+	if(p1.second < p2.second)
+	{
+		return true;
+	}
+	else if(p1.second == p2.second)
+	{
+		if(p1.first>p2.second)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+
+void explainExtra()
+{
+	sort(a, a+n);
+
+	sort(a, a+n, greater<int>);
+
+	pair<int, int> a[] ={{1,2}, {2,1}, {4,1}};
+
+	// sort it according to second element
+	// if second element is same, then sort
+	// it according to first element but in descending
+
+	sort(a, a+n, comp);
+
+	//  {{4,1}, {2, 1}, {1, 2}}
+
+	int num = 7; // 111
+	int cnt = _builtin_popcount();
+
+	long long num = 165786578687
+	int cnt = _builtin_popcountll();
+
+	string s = "123";
+
+	do{
+		cout <<  s <<endl;
+	}
+	while(next_permutation(s.begin(), s.end()));
+
+	// 123
+	// 132
+	// 213
+	// 231
+	// 312
+	// 321
+
+	int maxi = *max_element(a, a+n);
+
+}
