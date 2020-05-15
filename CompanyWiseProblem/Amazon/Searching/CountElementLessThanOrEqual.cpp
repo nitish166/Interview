@@ -9,7 +9,7 @@ using namespace std;
 void countEleLessThanOrEqual(int* arr1, int* arr2, int n, int m)
 {
 	
-	vector<int> ans;
+	
 	for(int i=0; i<n; i++)
 	{
 		int cnt=0;
@@ -20,14 +20,8 @@ void countEleLessThanOrEqual(int* arr1, int* arr2, int n, int m)
 				cnt++;
 			}
 		}
-		ans.push_back(cnt);
+		cout<<cnt<<" ";	
 	}
-
-	for(int i=0; i<ans.size(); i++)
-	{
-		cout<<ans[i]<<" ";
-	}
-
 }
 
 
