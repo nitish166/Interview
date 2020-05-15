@@ -1,3 +1,6 @@
+// Time complexity: O(n)
+
+
 int transitionPoint(int arr[], int n) {
     // code here
     bool temp = false;
