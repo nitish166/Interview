@@ -25,6 +25,43 @@ void countEleLessThanOrEqual(int* arr1, int* arr2, int n, int m)
 }
 
 
+
+// Efficent Solution
+// Time complexity: O(nlogn+ mlogn)
+// Space complexity: O(1)
+
+
+int binary_search(int* arr2, int l, int h, int x)
+{
+	while(l<=h)
+	{
+		int mid = (l+h)/2;
+		if(arr2[mid] <=x)
+		{
+			l = mid+1;
+		}
+		else
+		{
+			h = mid-1;
+		}
+	}
+	// required index
+	return h;
+}
+
+
+
+void countEleLessThanOrEqual(int* arr1, int* arr2, int n, int m)
+{
+	sort(arr2, arr2+m);
+	for(int i=0; i<n; i++)
+	{
+		int index = binary_search(arr2, 0, m-1, arr1[i]);
+		cout<<(index+1)<<" ";
+	}
+}
+
+
 int main()
 {
 	int t;
