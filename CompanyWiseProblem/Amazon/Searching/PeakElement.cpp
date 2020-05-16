@@ -1,8 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Efficent Solution
+// Recursion method
+// Time Complexity: O(logn)
+// Space complexity: O(1)
+
+int peakElementUtil(int* arr, int low, int high, int n)
+{
+	int mid = low + (high-low)/2;
+
+	if((mid==0 || arr[mid]>= arr[mid-1]) && (mid==n-1  || arr[mid]>=arr[mid+1]))
+	{
+		return mid;
+	}
+
+	else if(mid>0 && arr[mid-1]>arr[mid])
+	{
+		return peakElementUtil(arr, low, (mid-1), n);
+	}
+	else
+	{
+		return peakElementUtil(arr, (mid+1), high, n);
+	}
+}
 
 
+
+int peakElement(int* arr, int n)
+{
+	return peakElementUtil(arr, 0, n-1, n);
+}
+
+
+// Navie Solution
+// Time complexity: O(n)
+// Space complexity: O(1)
 int peakElement(int* arr, int n)
 {
 	if(arr[0]>arr[1])
@@ -21,7 +54,6 @@ int peakElement(int* arr, int n)
 		}
 	}
 }
-
 
 
 int main()
