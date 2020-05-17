@@ -41,21 +41,31 @@ void subArraySum(int* arr, int n, int s)
 	int start=0, last=0;
 	int cuursum=arr[0];
 	bool temp = false;
+
+	// Add elements one by one to currsum and
+	// if the currsum exceeds the sum
+	// then remove starting element
 	for(int i=1; i<=n; i++)
 	{
+		// if currsum exceeds the sum,
+		// then remove the starting elements
+		// Also, check start less than end
 		while(cuursum>s && start<i-1)
 		{
 			cuursum = cuursum - arr[start];
 			start++;
 		}
 
+		// if currsum becomes equal to sum,
+		// then return last index
 		if(cuursum==s)
 		{
 			last=i-1;
 			temp = true;
 			break;
 		}
-
+		// Why? Adding element in last.
+		// Well, keep maintane to index
 		if(i<n)
 		{
 			cuursum +=arr[i];
@@ -68,6 +78,7 @@ void subArraySum(int* arr, int n, int s)
 	}
 	else
 	{
+		// if we reach here, then no subarray
 		cout<<"-1";
 	}
 	
