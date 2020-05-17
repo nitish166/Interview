@@ -1,15 +1,19 @@
-int MissingNumber(vector<int>& array, int n) {
-    // Your code goes here
-    int sum = (n*(n+1))/2;
+#include<bits/stdc++.h>
+using namespace std;
+
+
+// int MissingNumber(vector<int>& array, int n) {
+//     // Your code goes here
+//     int sum = (n*(n+1))/2;
     
-    int temp=0;
-    for(int i=0; i<array.size(); i++)
-    {
-        temp +=array[i];
-    }
+//     int temp=0;
+//     for(int i=0; i<array.size(); i++)
+//     {
+//         temp +=array[i];
+//     }
     
-    return sum-temp;
-}
+//     return sum-temp;
+// }
 
 
 // 2nd method
@@ -26,4 +30,28 @@ int MissingNumber(vector<int>& array, int n) {
     for (int i = 1; i <= n; i++) xor_n = xor_n ^ i;
 
     return xor_n ^ xor_array;
+}
+
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
+        vector<int> ans;
+        for(int i=0; i<n; i++)
+        {
+            int temp;
+            cin>>temp;
+            ans.push_back(temp);
+        }
+
+        int res = MissingNumber(ans, n);
+        cout<<res<<endl;
+
+    }
+    return 0;
 }
