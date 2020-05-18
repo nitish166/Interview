@@ -2,6 +2,10 @@
 using namespace std;
 
 
+// Time complexity: O(nlogn)  worst case running time
+// Space complexity: O(n)
+// Not in place algorithm
+
 void merge(int* arr, int l, int m, int r)
 {
 	int i, j, k;
