@@ -42,7 +42,6 @@ void spirallyTraverse(int m, int n, int arr[SIZE][SIZE])
 			}
 			l++;
 		}
-
 	}
 }
 
