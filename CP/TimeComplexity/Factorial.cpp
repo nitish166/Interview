@@ -11,8 +11,6 @@ void tailoringZero(long long n)
 	cout<<count<<endl;
 }
 
-
-
 int main()
 {
 	int t;
