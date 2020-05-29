@@ -10,43 +10,44 @@ using namespace std;
 vector<string> findMatchedWords(vector<string> dict, string pattern);
 
 
-string encode(string pattern)
+bool check(string word, string pattern)
 {
-	map<char, int> m;
-	int i=0;
-	string res="";
-
-	for(char ch: pattern)
+	char ch[128] ={0};
+	if(word.length() !=pattern.length())
 	{
-		if(m.find(ch)==m.end())
-		{
-			m[ch]=i++;
-		}
-
-		res +=to_string(m[ch]);
+		return false;
 	}
-	return res;
-}
 
+	int len = word.length();
+
+	for(int i=0; i<len; i++)
+	{
+		if(ch[pattern[i]]==0)
+		{
+			ch[pattern[i]] = word[i];
+		}
+		else if(ch[pattern[i]] !=word[i])
+		{
+			return false;
+		}
+	}
+	return true;
+}
 
 
 vector<string> findMatchedWords(vector<string> dict, string pattern)
 {
 	vector<string> ans;
-	int len = pattern.length();
 
-	string hash = encode(pattern);
-
-	for(string word: dict)
+	// for each word in the dictionary
+	for(string word : dict)
 	{
-		if(len==word.length() && hash==encode(word))
+		if(check(word, pattern))
 		{
 			ans.push_back(word);
 		}
 	}
-
 	return ans;
-
 }
 
 
