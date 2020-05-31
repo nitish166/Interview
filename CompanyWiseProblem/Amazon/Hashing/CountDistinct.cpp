@@ -4,25 +4,46 @@ using namespace std;
 
 void countDistinct(int n, int k, int* arr)
 {
-	int res=k;
-	int ans=0;
-	for(int i=0; i<n; i++)
+	// creates an empty hashmap
+	map<int, int> m;
+	int cnt=0;
+	for(int i=0; i<k; i++)
 	{
-		int cnt=0;
-		for(int j=i; j<k; j++)
+		if(m[arr[i]]==0)
 		{
-			if(arr[j] !=arr[j+1])
-			{
-				cnt++;
-			}
+			cnt++;
 		}
-		k++;
+
+		m[arr[i]]++;
+	}
+
+	cout<<cnt<<" ";
+
+	for(int i=k; i<n; i++)
+	{
+		// remove first element of previous window
+		// if there was only one occurrence, then reduce distinct element
+
+		if(m[arr[i-k]] ==1)
+		{
+			cnt--;
+		}
+
+		// reduce cnt of the removed element
+
+		m[arr[i-k]] -=1;
+
+		// Add new element of current window
+		// if this element appears first time
+		// increment distinct element count
+
+		if(m[arr[i]] ==0)
+		{
+			cnt++;
+		}
+
+		m[arr[i]] +=1;
 		cout<<cnt<<" ";
-		ans++;
-		if(ans==res)
-		{
-			break;
-		}
 	}
 }
 
