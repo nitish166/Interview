@@ -1,50 +1,33 @@
 #include <bits/stdc++.h>
+#include <unordered_map>
 using namespace std;
 
 
-void countDistinct(int n, int k, int* arr)
+vector<int> countDistinct(int n, int k, int* arr)
 {
-	// creates an empty hashmap
-	map<int, int> m;
-	int cnt=0;
+	unordered_map<int, int> um;
+	vector<int> res;
+
+	// count number of distinct elements for first window
 	for(int i=0; i<k; i++)
 	{
-		if(m[arr[i]]==0)
-		{
-			cnt++;
-		}
-
-		m[arr[i]]++;
+		um[arr[i]]++;
 	}
+	res.push_back(um.size());
 
-	cout<<cnt<<" ";
-
-	for(int i=k; i<n; i++)
+	// calculate answer for rest of the windows
+	for(int i=1; i<n-k+1; i++)
 	{
-		// remove first element of previous window
-		// if there was only one occurrence, then reduce distinct element
-
-		if(m[arr[i-k]] ==1)
+		um[arr[i-1]]--;
+		if(um[arr[i-1]] <=0)
 		{
-			cnt--;
+			um.erase(arr[i-1]);
 		}
-
-		// reduce cnt of the removed element
-
-		m[arr[i-k]] -=1;
-
-		// Add new element of current window
-		// if this element appears first time
-		// increment distinct element count
-
-		if(m[arr[i]] ==0)
-		{
-			cnt++;
-		}
-
-		m[arr[i]] +=1;
-		cout<<cnt<<" ";
+		um[arr[i+k-1]]++;
+		res.push_back(um.size());
 	}
+	return res;
+
 }
 
 
@@ -62,8 +45,12 @@ int main()
 		{
 			cin>>arr[i];
 		}
-		countDistinct(n,k,arr);
-		cout<<endl;
+		vector<int> ans =countDistinct(n,k,arr);
+		for(int i=0; i<ans.size(); i++)
+		{
+			cout<<ans[i]<<" ";
+		}
+		
 	}
 	return 0;
 }
