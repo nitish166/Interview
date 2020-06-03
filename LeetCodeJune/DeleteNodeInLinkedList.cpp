@@ -42,3 +42,21 @@ public:
             
     }
 };
+
+
+// Beginners Solution
+
+class Solution {
+public:
+    void deleteNode(ListNode* node) {
+        ListNode* curr = node;
+        ListNode* prev = NULL;
+        while(curr->next != NULL){
+            prev = curr;
+            curr->val = curr->next->val;
+            curr = curr->next;
+        }
+        prev->next = NULL;
+        delete(curr);
+    }
+};
