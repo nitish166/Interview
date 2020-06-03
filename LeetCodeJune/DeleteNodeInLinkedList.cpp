@@ -1,5 +1,5 @@
 /*
- Day 1: ProblemName: Delete Node In LinkedList
+ Day 2: ProblemName: Delete Node In LinkedList
         Author     : Nitish Kumar
         Time       : 8:16 AM
         Status     : Accepted.
