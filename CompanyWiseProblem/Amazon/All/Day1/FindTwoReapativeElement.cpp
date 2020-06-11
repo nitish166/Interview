@@ -41,6 +41,25 @@ void repatitiveElement(int* arr, int n)
 }
 
 
+// Method 3 : Use array element as index
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
+void repatitiveElement(int* arr, int n)
+{
+	for(int i=0; i<n; i++)
+	{
+		if(arr[abs(arr[i])]>0)
+		{
+			arr[abs(arr[i])] = -arr[abs(arr[i])];
+		}
+		else
+		{
+			cout<< " "<<abs(arr[i])<<" ";
+		}
+	}
+}
+
 
 int main()
 {
