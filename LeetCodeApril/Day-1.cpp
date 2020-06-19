@@ -27,6 +27,9 @@ public:
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
+
+    	// Xor all number, the left over number would be the non repeated one
+    	// since the equal numbers cancel out each ohters bits
         
     	int result =0;
     	for(int i=0; i<nums.size(); i++)
