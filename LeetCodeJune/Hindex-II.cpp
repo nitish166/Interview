@@ -2,17 +2,35 @@ class Solution {
 public:
     int hIndex(vector<int>& citations) {
         
+        // int n = citations.size();
+        // int i = n-1;
+        // while(i>=0)
+        // {
+        // 	if(citations[i]<n-i)
+        // 	{
+        // 		break;
+        // 	}
+        // 	i--;
+        // }
+        // return n-i-1;
+
+
         int n = citations.size();
-        int i = n-1;
-        while(i>=0)
+        int l = 0;
+        int r = n-1;
+        while(l<=r)
         {
-        	if(citations[i]<n-i)
+        	int mid = l + (r-l)/2;
+        	if(citations[mid]<n-mid)
         	{
-        		break;
+        		l = mid+1;
         	}
-        	i--;
+        	else
+        	{
+        		r = mid-1;
+        	}
         }
-        return n-i-1;
+        return n-l;
 
     }
 };
