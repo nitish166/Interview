@@ -19,7 +19,7 @@ public:
 	}
 
     i=0;
-    
+
 	while(T[i]!='\0')
 	{
 		if(T[i]>='a' && T[i]<='z')
@@ -37,6 +37,50 @@ public:
 		return true;
 	}
 	return false;
+        
+    }
+};
+
+
+
+// Another Approch
+
+class Solution {
+public:
+
+
+	string checkString(string &str)
+	{
+		int i = str.size()-1;
+		string result="";
+		int count=0;
+
+		while(i>=0)
+		{
+			if(str[i]=='#')
+			{
+				count++;
+			}
+			else
+			{
+				if(count)
+				{
+					count--;
+				}
+				else
+				{
+					result +=str[i];
+				}
+			}
+			--i;
+		}
+		return result;
+	}
+
+
+    bool backspaceCompare(string S, string T) {
+        
+      return checkString(S)==checkString(T);
         
     }
 };
