@@ -51,3 +51,5 @@ public:
         return majority;
     }
 };
+
+// 4rd method 
