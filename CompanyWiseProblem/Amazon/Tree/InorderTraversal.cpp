@@ -1,4 +1,5 @@
 
+
 void inOrderFun(vector<int> &res, Node* root)
 {
     if(root==NULL)
