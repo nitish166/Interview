@@ -4,11 +4,7 @@ public:
         
     int idx1 = lower_bound(nums, target);
     int idx2 = lower_bound(nums, target+1)-1;
-    // if (idx1 < nums.size() && nums[idx1] == target)
-    //     return {idx1, idx2};
-    // else
-    //     return {-1, -1};
-        
+
         if(idx1<=idx2)
         {
             return {idx1, idx2};
@@ -18,9 +14,6 @@ public:
             return {-1, -1};
         }
     }
-        
-        
-    
     int lower_bound(vector<int>& nums, int target) {
     int l = 0, r = nums.size()-1;
     while (l <= r) {
