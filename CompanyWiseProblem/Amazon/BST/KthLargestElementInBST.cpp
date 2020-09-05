@@ -19,7 +19,7 @@ int kthLargest(Node *root, int K)
     }
     vector<int> ans;
     helper(root, ans);
-    sort(ans.begin(), ans.end());
+    sort(ans.begin(), ans.end(), greater<int>());
     int temp=0;
     for(int i=0; i<ans.size(); i++)
     {
