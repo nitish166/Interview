@@ -2,6 +2,7 @@ queue<long long int> rev(queue<long long int> q)
 {
     // add code here.
     queue<long long int> ans;
+    // stack
     stack<long long int> s;
     while(!q.empty())
     {
