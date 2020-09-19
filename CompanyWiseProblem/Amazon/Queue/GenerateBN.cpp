@@ -1,3 +1,7 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
 vector<string> generate(ll n)
 {
 	// Your code here
@@ -14,4 +18,9 @@ vector<string> generate(ll n)
         q.push(s2.append("1"));
     }
     return ans;
+}
+
+int main()
+{
+    return 0;
 }
