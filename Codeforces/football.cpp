@@ -1,5 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+int calculatePair()
+{
+
+}
+
+
 int main()
 {
 	int n;
